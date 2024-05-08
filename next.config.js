@@ -11,15 +11,20 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: '/:path*', // This applies the headers to all paths
+        source: '/:path*',
         headers: [
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; font-src 'self' https://ray.st; script-src 'self' 'unsafe-inline' https://metrics.aibuzz.us;"
+            value: "default-src 'self';" +
+                   "script-src 'self' 'unsafe-eval' https://metrics.aibuzz.us;" +
+                   "connect-src 'self' https://metrics.aibuzz.us;" +
+                   "img-src 'self' https://cdn.sanity.io;" +
+                   "style-src 'self' 'unsafe-inline';" +
+                   "font-src 'self';"
           }
-        ],
+        ]
       },
-    ]
+    ];
   },
 }
 
