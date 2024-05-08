@@ -10,10 +10,15 @@ export function MyFpjsProvider({ children }: PropsWithChildren) {
   );
 
   useEffect(() => {
-    if (!isLoading && data) {
-      console.log('Visitor data:', data);
+    if (!isLoading) {
+      if (data) {
+        console.log('Visitor data:', data);
+      }
+      if (error) {
+        console.error('Error fetching visitor data:', error);
+      }
     }
-  }, [isLoading, data]);
+  }, [isLoading, data, error]);
 
   return (
     <FpjsProvider

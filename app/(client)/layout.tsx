@@ -3,7 +3,7 @@ import { Fira_Code } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import { Provider } from "../utils/Provider";
-import { MyFpjsProvider } from '../components/FpjsProvider';
+import { FpjsProvider } from '@fingerprintjs/fingerprintjs-pro-react';
 
 
 const firaCode = Fira_Code({ subsets: ["latin"] });
@@ -32,17 +32,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body
-        className={`${firaCode.className} h-full bg-amber-50 text-indigo-950 dark:bg-slate-950 dark:text-amber-50 dark:selection:bg-purple-500`}
-      >
-        <MyFpjsProvider> {/* Wrap children with MyFpjsProvider */}
+    <FpjsProvider
+      loadOptions={{
+        apiKey: '45Zv9bO7SOUZdfuq1EAo',
+        endpoint: 'https://metrics.aibuzz.us',
+        scriptUrlPattern: "https://metrics.aibuzz.us/web/v<version>/<apiKey>/loader_v<loaderVersion>.js"
+      }}
+    >
+      <html lang="en">
+        <body
+          className={`${firaCode.className} h-full bg-amber-50 text-indigo-950 dark:bg-slate-950 dark:text-amber-50 dark:selection:bg-purple-500`}
+        >
           <Provider>
             <Navbar />
             <main className="h-full mx-auto max-w-5xl px-6">{children}</main>
           </Provider>
-        </MyFpjsProvider>
-      </body>
-    </html>
+        </body>
+      </html>
+    </FpjsProvider>
   );
 }
