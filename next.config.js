@@ -5,27 +5,21 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "cdn.sanity.io",
-      }
+      },
     ],
   },
-  async headers() {
+  headers: async () => {
     return [
       {
+        // Apply these headers to all routes in your application.
         source: '/:path*',
         headers: [
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self';" +
-                   "script-src 'self' 'unsafe-eval' https://metrics.aibuzz.us;" +
-                   "connect-src 'self' https://metrics.aibuzz.us;" +
-                   "img-src 'self' https://cdn.sanity.io;" +
-                   "style-src 'self' 'unsafe-inline';" +
-                   "font-src 'self';"
-          }
-        ]
+            value: "default-src 'self' metrics.aibuzz.us ray.st; font-src 'self' https://ray.st; style-src 'self' https://ray.st; script-src 'self' 'unsafe-inline' 'unsafe-eval';"
+          },
+        ],
       },
-    ];
+    ]
   },
-}
-
-module.exports = nextConfig
+};
