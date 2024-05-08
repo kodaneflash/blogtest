@@ -11,7 +11,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://next-cms-blog-ce.vercel.app/"),
+  metadataBase: new URL("https://aibuzz.us/"),
   // title: "Dev Blook - A blog for developers",
   title: {
     default: "Dev Blook - A blog for developers",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     description: "A blog for developers by developers!",
     type: "website",
     locale: "en_US",
-    url: "https://next-cms-blog-ce.vercel.app/",
+    url: "https://aibuzz.us/",
     siteName: "DevBlook"
   },
 };
