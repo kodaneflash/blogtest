@@ -25,20 +25,23 @@ export default async function sitemap():Promise<MetadataRoute.Sitemap> {
   const posts: Post[] = await getPosts();
 
   const postUrls = posts.map((post) => ({
-    url: `https://next-cms-blog-ce.vercel.app/${post.slug.current}`,
+    url: `https://aibuzz.us/${post.slug.current}`,
     lastModified: new Date(post.publishedAt),
   }))
 
 
   return [
     {
-      url: `https://next-cms-blog-ce.vercel.app/`,
+      url: `https://aibuzz.us`,
       lastModified: new Date(),
     },
     {
-      url: "https://next-cms-blog-ce.vercel.app/tag",
+      url: "https://aibuzz.ustag",
       lastModified: new Date(),
     },
     ...postUrls, 
   ]
 }
+
+
+

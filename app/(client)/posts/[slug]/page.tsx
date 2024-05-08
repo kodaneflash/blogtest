@@ -70,7 +70,7 @@ export async function generateMetadata({
       description: post.excerpt,
       type: "article",
       locale: "en_US",
-      url: `https://next-cms-blog-ce.vercel.app/${params.slug}`,
+      url: `https://aibuzz.us/${params.slug}`,
       siteName: "DevBlook",
       images: [
         // {
