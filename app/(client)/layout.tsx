@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
-import { Fira_Code } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import { Provider } from "../utils/Provider";
 
-const firaCode = Fira_Code({ subsets: ["latin"] });
+const montserrat = Montserrat({
+  weight: 'variable', // Use 'variable' to cover all weight variations
+  style: ['normal', 'italic'],  // Include 'italic' if needed
+  subsets: ["latin"]            // Common subset for English content
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://next-cms-blog-ce.vercel.app/"),
@@ -32,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${firaCode.className} h-full bg-amber-50 text-indigo-950 dark:bg-slate-950 dark:text-amber-50 dark:selection:bg-purple-500`}
+        className={`${montserrat.className} h-full bg-amber-50 text-indigo-950 dark:bg-slate-950 dark:text-amber-50 dark:selection:bg-purple-500`}
       >
         <Provider>
           <Navbar />
